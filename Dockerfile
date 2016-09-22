@@ -1,17 +1,13 @@
 FROM golang
 
-# Create the directory where the application will reside
-RUN mkdir /app/
+# Copy the local package files to the container's workspace.
+ADD . /go/src/github.com/umair-eaglet/hellogo/helloworld
 
-# Copy the application files (needed for production)
-ADD myapp /app/helloworld
+# Build the helloworld within the container.
+RUN go install github.com/umair-eaglet/hellogo/helloworld
 
-
-# Set the working directory to the app directory
-WORKDIR /app
-
-# Expose the application on port 8080.
+# Document that the service listens on port 8080.
 EXPOSE 8080
 
-# Set the entry point of the container to the application executable
-ENTRYPOINT /app/MathApp
+# Make helloworld entry point to run it upon container start.
+ENTRYPOINT /go/bin/helloworld
