@@ -1,6 +1,6 @@
 FROM golang
 
-go get github.com/umair-eaglet/hellogo/helloworld
+Run go get github.com/umair-eaglet/hellogo/helloworld
 
 # Copy the local package files to the container's workspace.
 ADD . /go/src/github.com/umair-eaglet/hellogo/helloworld
