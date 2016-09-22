@@ -1,7 +1,7 @@
 FROM golang
 
 # Copy the local package files to the container's workspace.
-ADD . /go/src/github.com/umair-eaglet/hellogo/src/helloworld
+ADD . /github.com/umair-eaglet/hellogo/src/helloworld
 
 # Build the helloworld within the container.
 RUN go install github.com/umair-eaglet/hellogo/src/helloworld
